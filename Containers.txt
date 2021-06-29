@@ -1,0 +1,13 @@
+docker run --name httpserver -v"C:\devtools\http\conf:/etc/nginx/conf.d:ro" -v"C:\devtools\http\html:/usr/share/nginx/html":ro -d -p"8080:80" -p"8002:8002" --network local-network  nginx
+
+docker run -e"MESSAGE=Rodrigo" --name rodrigoapi --network local-network -d rodrigofreund/restapi
+
+docker run -e"MESSAGE=Dienifer" --name dieniferapi --network local-network -d rodrigofreund/restapi
+
+docker network create --driver bridge local-network
+
+
+localhost:8002/rodrigo
+localhost:8002/dienifer
+
+
